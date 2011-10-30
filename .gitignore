@@ -1,0 +1,3 @@
+syntax: globs
+project/boot/
+target/
