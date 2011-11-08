@@ -102,8 +102,8 @@ class Comparison extends ((Elem, Elem) => XmlDiff) {
     val sb = new StringBuilder(64)
     sb.append(pref)
     e.nameToString(sb)
-      .append("\n\tExpected: ").append(exp)
-      .append("\n\tFound: ").append(actual)
+      .append("\n\tExpected: <").append(exp).append(">")
+      .append("\n\tFound: <").append(actual).append(">")
     Diff(path, sb.toString)
   }
 
@@ -122,15 +122,15 @@ class Comparison extends ((Elem, Elem) => XmlDiff) {
   /** Returns 'true' if the attributes in e1 are included in e2.  */
   private def includesAttributes(e1: Elem, e2: Elem): Boolean = {
     def contains(a: MetaData) = {
-      val attr =
-        if (a.isPrefixed) 
+      val e2AttributeValue =
+        if (a.isPrefixed)
           e2.attributes(a.getNamespace(e1), e2.scope, a.key)
-        else 
+        else
           e2.attributes(a.key)
-      (attr != null) && (notext || attr == a.value)
+      (e2AttributeValue != null) && (notext || e2AttributeValue == a.value)
     }
     
-    e1.attributes.forall(contains(_))
+    e1.attributes.filter(_.value != null).forall(contains(_))
   }
 
   /**
