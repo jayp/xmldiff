@@ -1,3 +1,9 @@
 syntax: globs
+
+# sbt files
 project/boot/
 target/
+
+# eclipse files
+.classpath
+.project
