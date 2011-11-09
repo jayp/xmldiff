@@ -171,6 +171,12 @@ class Comparison extends ((Elem, Elem) => XmlDiff) {
           }
         path = path.tail
         res
+        
+      case (x: Node, y: Node) =>
+        if (notext || x.text == y.text) 
+          NoDiff 
+        else
+          Diff(path, "Expected " + x + " but " + y + " found.")
     }
   }
 }
