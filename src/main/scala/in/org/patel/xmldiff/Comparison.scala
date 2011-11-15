@@ -1,4 +1,5 @@
-/* Copyright (c) 2008 Google Inc.
+/* Copyright (c) 2011 Jay A. Patel <jay@patel.org.in>
+ * Copyright (c) 2008 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +14,7 @@
  * limitations under the License.
  */
 
-
-package com.google.xmldiff
+package in.org.patel.xmldiff
 
 import scala.xml.{Elem, Node, MetaData, Text, Comment}
 

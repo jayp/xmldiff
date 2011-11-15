@@ -1,6 +1,8 @@
 name := "xmldiff"
 
-version := "0.01"
+version := "0.4"
+
+organization := "in.org.patel"
 
 scalaVersion := "2.9.1"
 
